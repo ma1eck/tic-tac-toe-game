@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	gameMenu "ticTacToe/view/gameMenu"
 )
 
 func Run() {
@@ -15,6 +16,7 @@ func Run() {
 			break
 		}else if input == "start game"{
 			fmt.Println("The game has been started")
+			gameMenu.StartGame()
 		}else {
 			fmt.Println("Invalid input")
 		}

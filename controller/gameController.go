@@ -79,6 +79,15 @@ func WhoWins(gameMap [3][3]gameModel.Player) *gameModel.Player {
 	}
 	if playersSetInSecondDiameter[gameModel.Player2] == 3 {
 		return &gameModel.Player2
+
 	}
-	return nil
+	for _, row := range gameMap {
+		for _, player := range row {
+			if (player == gameModel.Player{}) {
+				return nil
+			}
+		}
+	}
+
+	return &gameModel.Player{}
 }
