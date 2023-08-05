@@ -1,15 +1,15 @@
 package mainMenu
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strings"
 )
 
 func Run() {
 	for {
-		var input string
-		fmt.Scanf("%[^\n]s",&input)
-		input = strings.TrimSpace(input) 
+		input := gettingInput() 
 		if input == "exit"{
 			fmt.Println("You have exited")
 			break
@@ -19,4 +19,11 @@ func Run() {
 			fmt.Println("Invalid input")
 		}
 	}
+}
+
+func gettingInput() string {
+	reader := bufio.NewReader(os.Stdin)
+	input, _ := reader.ReadBytes('\n')
+	trimedInput := strings.TrimSpace(string(input))
+	return	trimedInput
 }
