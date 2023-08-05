@@ -15,10 +15,13 @@ func StartGame(){
 		controller.Play(&newGame, x, y)
 		controller.PrintMap(newGame)
 		winner := controller.WhoWins(newGame.Map)
-		if ( winner == &gameModel.Player{}) {
+		if (winner == nil){ // todo clean return value 
+			continue
+		}
+		if ( *winner == gameModel.Player{}) {
 			fmt.Println("Game ended with a draw")
 			break	
-		}else if (winner != nil){
+		}else {
 			fmt.Println("winner is", *winner)
 			break	
 		}
