@@ -14,10 +14,10 @@ func NewGame() Game{
 
 func (game *Game) Play(x int, y int) {
 	game.Map[x][y] = game.currentPlayer
-	game.nextPlayer()
+	game.nextTurn()
 }
 
-func (game *Game) nextPlayer(){
+func (game *Game) nextTurn(){
 	if game.currentPlayer == Player1 {
 		game.currentPlayer = Player2
 	}else {
